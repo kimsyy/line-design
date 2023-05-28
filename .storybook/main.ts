@@ -11,14 +11,7 @@ const config: StorybookConfig = {
     "@storybook/addon-styling"
   ],
   typescript: {
-    check: false,
-    checkOptions: {},
-    reactDocgen: "react-docgen-typescript",
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: prop =>
-        prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
-    }
+    reactDocgen: "react-docgen"
   },
   framework: {
     name: "@storybook/react-vite",
