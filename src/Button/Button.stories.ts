@@ -21,6 +21,10 @@ const meta: Meta<typeof Button> = {
       options: [ButtonTheme.primary, ButtonTheme.warning, ButtonTheme.outline],
       control: { type: "radio" },
       table: { defaultValue: { summary: ButtonTheme.primary } }
+    },
+    onClick: {
+      description: "버튼 클릭 이벤트",
+      action: "button clicked"
     }
   },
   args: {

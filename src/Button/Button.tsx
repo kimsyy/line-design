@@ -17,16 +17,18 @@ export const ButtonTheme = {
 export interface ButtonProps {
   size?: typeof ButtonSize[keyof typeof ButtonSize];
   theme?: typeof ButtonTheme[keyof typeof ButtonTheme];
+  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   children: ReactNode;
 }
 
 export const Button = ({
   size = ButtonSize.medium,
   theme = ButtonTheme.primary,
+  onClick,
   children
 }: ButtonProps) => {
   return (
-    <StyledButton size={size} theme={theme}>
+    <StyledButton size={size} theme={theme} onClick={onClick}>
       {children}
     </StyledButton>
   );
