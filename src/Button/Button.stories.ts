@@ -25,6 +25,10 @@ const meta: Meta<typeof Button> = {
     onClick: {
       description: "버튼 클릭 이벤트",
       action: "button clicked"
+    },
+    disabled: {
+      description: "버튼 비활성화",
+      control: "boolean"
     }
   },
   args: {
@@ -88,5 +92,14 @@ export const warning: Story = {
 export const outline: Story = {
   args: {
     theme: ButtonTheme.outline
+  }
+};
+
+/**
+ * disabled 비활성화 버튼
+ */
+export const disabled: Story = {
+  args: {
+    disabled: true
   }
 };

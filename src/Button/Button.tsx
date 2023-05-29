@@ -18,17 +18,24 @@ export interface ButtonProps {
   size?: typeof ButtonSize[keyof typeof ButtonSize];
   theme?: typeof ButtonTheme[keyof typeof ButtonTheme];
   onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  disabled?: boolean;
   children: ReactNode;
 }
 
 export const Button = ({
   size = ButtonSize.medium,
   theme = ButtonTheme.primary,
+  disabled = false,
   onClick,
   children
 }: ButtonProps) => {
   return (
-    <StyledButton size={size} theme={theme} onClick={onClick}>
+    <StyledButton
+      size={size}
+      theme={theme}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {children}
     </StyledButton>
   );
@@ -81,6 +88,31 @@ const getThemeStyle = ({ theme }) => {
   }
 };
 
+const getDisabledStyle = ({ disabled, theme }) => {
+  if (!disabled) return;
+  switch (theme) {
+    case ButtonTheme.primary: {
+      return css`
+        color: #fff;
+        background-color: #e8e8e8;
+      `;
+    }
+    case ButtonTheme.warning: {
+      return css`
+        color: #fff;
+        background-color: #e8e8e8;
+      `;
+    }
+    case ButtonTheme.outline: {
+      return css`
+        color: #e8e8e8;
+        background-color: #fff;
+        border: 1px solid #e8e8e8;
+      `;
+    }
+  }
+};
+
 const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
   box-sizing: border-box;
@@ -94,4 +126,5 @@ const StyledButton = styled.button<ButtonProps>`
 
   ${props => getSizeStyle(props)};
   ${props => getThemeStyle(props)};
+  ${props => getDisabledStyle(props)};
 `;
