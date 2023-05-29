@@ -5,6 +5,13 @@ const meta: Meta<typeof Button> = {
   title: "Button",
   tags: ["autodocs"],
   component: Button,
+  decorators: [
+    Story => (
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Story />
+      </div>
+    )
+  ],
   argTypes: {
     children: {
       description: "children",
