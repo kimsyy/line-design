@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import React, { ReactNode } from "react";
+import { color } from "../../shared/styles";
 
 export const ButtonSize = {
   small: "small",
@@ -68,21 +69,21 @@ const getThemeStyle = ({ theme }) => {
   switch (theme) {
     case ButtonTheme.primary: {
       return css`
-        color: #fff;
-        background-color: #06c755;
+        color: ${color.white};
+        background-color: ${color.positive};
       `;
     }
     case ButtonTheme.warning: {
       return css`
-        color: #fff;
-        background-color: #ff334b;
+        color: ${color.white};
+        background-color: ${color.warning};
       `;
     }
     case ButtonTheme.outline: {
       return css`
-        color: #06c755;
-        background-color: #fff;
-        border: 1px solid #06c755;
+        color: ${color.positive};
+        background-color: ${color.white};
+        border: 1px solid ${color.positive};
       `;
     }
   }

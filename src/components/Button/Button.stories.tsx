@@ -2,12 +2,18 @@ import { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonSize, ButtonTheme } from "./Button";
 
 const meta: Meta<typeof Button> = {
-  title: "Button",
+  title: "디자인시스템/Atoms/Button",
   tags: ["autodocs"],
   component: Button,
   decorators: [
     Story => (
-      <div style={{ display: "flex", justifyContent: "center" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center"
+        }}
+      >
         <Story />
       </div>
     )
